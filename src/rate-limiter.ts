@@ -10,8 +10,6 @@ export const rateLimiter = (client: RedisClientType, options: RateLimiterOptions
         // Getting IP from request in this format: "127.0.0.1" 
         const ip = getRequestIp(req)
          
-        console.log({ip});
-        
 
         // Getting a key with this format: "rate-limit-key:127.0.0.1"
         // Where "rate-limit-key" can be customized
@@ -29,7 +27,7 @@ export const rateLimiter = (client: RedisClientType, options: RateLimiterOptions
         
         const count = await client.zCard(key)
 
-         // (optional) completely remove the client key after 10s to prevent memory consumption.
+        // (optional) completely remove the client key after 10s to prevent memory consumption.
         await client.expire(key, options.windowSizeSecs)
         
         if(count > options.requestLimit){

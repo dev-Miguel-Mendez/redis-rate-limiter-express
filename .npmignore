@@ -3,3 +3,5 @@
 
 tsconfig.json
 
+tests
+vitest.config.ts
