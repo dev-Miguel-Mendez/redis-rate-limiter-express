@@ -3,5 +3,5 @@
 
 tsconfig.json
 
-tests
+test
 vitest.config.ts
