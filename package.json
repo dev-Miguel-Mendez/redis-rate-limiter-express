@@ -12,7 +12,7 @@
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dev-Miguel-Mendez/custom-express-exceptions"
+    "url": "https://github.com/dev-Miguel-Mendez/redis-rate-limiter-express"
   },
   "files": [
     "dist"
