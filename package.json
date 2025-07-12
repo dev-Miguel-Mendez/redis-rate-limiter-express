@@ -1,6 +1,6 @@
 {
   "name": "redis-rate-limiter-express",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A rate limiter that uses Redis",
   "exports": {
     ".": {
