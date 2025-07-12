@@ -8,8 +8,14 @@ type RateLimiterOptions = {
     requestLimit: number
     uniqueUserIdentifier: string,
     defaultRedisKeyBase?: string
-
+    
 }
+
+
+/**
+ *  This function can be used independently of Expressjs.
+ */
+
 //prettier-ignore
 export const rateLimiter = async (client: RedisClientType, options: RateLimiterOptions)=>{
 
@@ -25,7 +31,7 @@ export const rateLimiter = async (client: RedisClientType, options: RateLimiterO
         // Removing all values from 0 to -990s so we are only left with values that are greater from 10s ago to now.
         await client.zRemRangeByScore(key, 0, windowStart)
         
-        await client.zAdd(key, [{score: now, value: `req-${now}`}]) //$ "value" can be anything unique.
+        await client.zAdd(key, [{score: now, value: `req-${Math.random()}`}]) //$ "value" is optional and can be anything unique. It can guarantee more  uniqueness if a multiple requests are made at the same millisecond.
         
         const count = await client.zCard(key)
 
