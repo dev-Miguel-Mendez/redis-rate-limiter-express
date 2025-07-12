@@ -9,10 +9,10 @@ export const rateLimiterExpress = (client: RedisClientType, options: RateLimiter
     return async (req: Request, res: Response, next: NextFunction)=>{
         
         const uniqueUserIdentifier =
-            options.uniqueIdentifier || // If uniqueIdentifier is provided, use it instead of IP.
-            getRequestIp(req) // Getting IP from request in this format: "127.0.0.1" 
+            options.uniqueIdentifier || //* If uniqueIdentifier is provided, use it instead of IP.
+            getRequestIp(req) //* Getting IP from request in this format: "127.0.0.1" 
         
-            // Redis, rate limiter logic
+            //* Redis, rate limiter logic
         const isRateLimited = await rateLimiter(client, {
             uniqueUserIdentifier,
             windowSizeSecs: options.windowSizeSecs,
