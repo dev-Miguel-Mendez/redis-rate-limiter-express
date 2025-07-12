@@ -4,6 +4,11 @@ import { RateLimiterOptions } from './types.js'
 import { getRequestIp } from './utils/get-request-ip.js'
 import { rateLimiter } from './rate-limiter.js'
 
+
+/**
+ *  Rate limiter middleware for Expressjs
+ */
+
 //prettier-ignore
 export const rateLimiterExpress = (client: RedisClientType, options: RateLimiterOptions)=>{
     return async (req: Request, res: Response, next: NextFunction)=>{
