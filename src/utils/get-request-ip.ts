@@ -1,7 +1,9 @@
 
 import type { Request} from 'express'
 
-
+/**
+ * Get IP from request object in this format: "127.0.0.1"
+ */
 
 export const getRequestIp = (req: Request)=>{
 
@@ -17,3 +19,6 @@ export const getRequestIp = (req: Request)=>{
     
     return ip
 }
+
+
+
