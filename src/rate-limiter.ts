@@ -1,15 +1,10 @@
 import type {RedisClientType} from 'redis' 
 import { getFullRedisKey } from './utils/get-full-redis-key.js'
+import { IsRateLimitedOptions } from './types.js'
 
 
 
-type RateLimiterOptions = {
-    windowSizeSecs: number,
-    requestLimit: number
-    uniqueUserIdentifier: string,
-    defaultRedisKeyBase?: string
-    
-}
+
 
 
 /**
@@ -17,7 +12,7 @@ type RateLimiterOptions = {
  */
 
 //prettier-ignore
-export const rateLimiter = async (client: RedisClientType, options: RateLimiterOptions)=>{
+export const isRateLimited = async (client: RedisClientType, options: IsRateLimitedOptions)=>{
 
         //* Getting a key for Redis with this format: "rate-limit-key:127.0.0.1"
         //* Where both "defaultRedisKeyBase" (default: "rate-limit-key") and "uniqueIdentifier" (default: IP) can be customized

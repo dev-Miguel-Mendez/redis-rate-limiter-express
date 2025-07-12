@@ -1,7 +1,15 @@
 
-export type RateLimiterOptions = {
+export type RateLimiterExpressOptions = {
     requestLimit: number,
     windowSizeSecs: number
     defaultRedisKeyBase?: string
-    uniqueIdentifier?: string
+}
+
+
+export type IsRateLimitedOptions = {
+    windowSizeSecs: number,
+    requestLimit: number
+    uniqueUserIdentifier: string,
+    defaultRedisKeyBase?: string
+    
 }
